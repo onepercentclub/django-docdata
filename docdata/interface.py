@@ -155,7 +155,8 @@ class PaymentInterface(object):
             data = {}
             for e in resultdom.getElementsByTagName('status')[0].childNodes:
                 # Make sure we've got only one child
-                assert len(e.childNodes) == 1
+                if len(e.childNodes) != 1:
+                    continue
 
                 value = e.firstChild
 
